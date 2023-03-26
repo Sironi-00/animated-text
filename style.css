@@ -1,9 +1,13 @@
 :root {
-    --long: 200px;
+    --long: 150px;
+    --half: 75px;
     --wide: 20px;
+
+    --fg: Black;
+    --bg: White;
 }
 body {
-    background-color: #EEE;
+    background-color: white;
 }
 header {
     text-align: center;
@@ -19,7 +23,7 @@ header {
     box-sizing: border-box;
 }
 .container {
-    background-color: #FFF;
+    background-color: White;
     box-shadow: 0 0 0 4px #222;
     min-width: 90%;
     min-height: 270px;
@@ -35,15 +39,15 @@ header {
     height: var(--long);
     margin: 0.5rem;
     position: relative;
-    background-color: Black;
+    background-color: var(--fg);
 }
 .alphabet::before, .alphabet::after {
     content: "";
-    background-color: Black;
+    background-color: var(--fg);
     position: absolute;
 }
 .hashTag {
-    background: white;
+    background: var(--bg);
 }
 .hashTag::before {
     width: var(--wide);
@@ -78,43 +82,42 @@ header {
 }
 
 .B {
-    width: 0;
-    height: 0;
+    width: calc(var(--long)/1.5);
+    background-color: var(--bg);
 }
 .B::before {
-    width: calc(var(--long)/2);
-    height: calc(var(--long)/2);
+    width: calc(var(--long)/1.5);
+    height: calc(var(--long)/2 + var(--wide)/2);
     border-radius: 0 50% 50% 0;
-    background-color: white;
-    box-shadow: inset 2px 2px 0 20px black;
+    background-color: var(--bg);
+    box-shadow: inset 2px 2px 0 20px var(--fg);
 }
 .B::after {
-    width: calc(var(--long)/2);
-    height: calc(var(--long)/2);
-    top: calc((var(--long)/2) - var(--wide));
+    width: calc(var(--long)/1.5);
+    height: calc(var(--long)/2 + var(--wide)/2);
+    top: calc((var(--long)/2) - var(--wide)/2);
     border-radius: 0 50% 50% 0;
-    background-color: white;
-    box-shadow: inset 0px 0px 0 var(--wide) black;
+    background-color: var(--bg);
+    box-shadow: inset 0px 0px 0 var(--wide) var(--fg);
 }
 
 .C {
-    background-color: white;
-    box-shadow: inset 0px 0 0 var(--wide) black;
+    background-color: var(--bg);
+    box-shadow: inset 0px 0 0 var(--wide) var(--fg);
     border-radius: 50%;
 }
 .C::after {
     width: calc(var(--long)/4);
     height: var(--long);
     right: 0;
-    background-color: White;
-    border-radius: 50%;
+    background-color: var(--bg);
 }
 
 .D {
     width: calc(var(--long)/1.5);
     border-radius: 0 45% 50% 0;
-    background-color: White;
-    box-shadow: inset 0 0 0 var(--wide) Black;
+    background-color: var(--bg);
+    box-shadow: inset 0 0 0 var(--wide) var(--fg);
 }
 .E {
     width: calc(var(--long) / 1.5);
@@ -122,14 +125,101 @@ header {
 .E::before {
     width: calc((var(--long) / 1.5) - var(--wide));
     height: calc(var(--long) - (var(--wide)*2));
-    background-color: white;
+    background-color: var(--bg);
     top: var(--wide);
     right: 0;
 }
 .E::after {
     width: calc((var(--long) / 1.5) - var(--wide));
     height: var(--wide);
-    background-color: Black;
+    background-color: var(--fg);
     top: calc((var(--long)/2) - (var(--wide)/2));
     left: 0;
+}
+
+.F {
+    width: calc(var(--long) / 1.5);
+}
+.F::before {
+    width: calc((var(--long) / 1.5) - var(--wide));
+    height: calc(var(--long) - (var(--wide)));
+    background-color: var(--bg);
+    top: var(--wide);
+    right: 0;
+}
+.F::after {
+    width: calc((var(--long) / 1.5) - var(--wide));
+    height: var(--wide);
+    background-color: var(--fg);
+    top: calc((var(--long)/2) - (var(--wide)/2));
+    left: 0;
+}
+
+.G {
+    background-color: var(--bg);
+    box-shadow: inset 0px 0 0 var(--wide) var(--fg);
+    border-radius: 50%;
+}
+.G::before {
+    width: calc(var(--wide) * 2);
+    height: calc(var(--long) / 4);
+    top: calc(var(--long) / 4);
+    right: 0;
+    background-color: var(--bg);
+    
+}
+.G::after {
+    width: calc(var(--long)/3);
+    height: var(--wide);
+    top: calc(var(--long) / 2);
+    right: var(--wide);
+    background-color: var(--fg);
+}
+
+.H {
+    width: calc(var(--long) / 1.5);
+}
+.H::before {
+    width: calc((var(--long) / 1.5) - calc(var(--wide)*2));
+    height: var(--long);
+    background-color: var(--bg);
+    left: var(--wide);
+}
+.H::after {
+    width: calc((var(--long) / 1.5) - var(--wide));
+    height: var(--wide);
+    top: calc((var(--long)/2) - (var(--wide)/2));
+}
+
+.I {
+    width: calc(var(--long)/1.5);
+}
+.I::before {
+    width: calc((var(--long) / 1.5));
+    height: calc(var(--long) - ((var(--wide)*2)));
+    background-color: var(--bg);
+    top: var(--wide);
+    right: 0;
+}
+.I::after {
+    width: var(--wide);
+    height: var(--long);
+    left: calc((var(--half)/2) );
+}
+
+.J {
+    width: calc(var(--long)/1.5);
+}
+.J::before {
+    width: calc((var(--half)/1.5) - (var(--wide)/2));
+    height: calc(var(--long) - var(--wide)*2);
+    top: var(--wide);
+    background-color: var(--bg);
+}
+.J::after {
+    width: calc((var(--half)/1.5) - (var(--wide)/2));
+    height: calc(var(--long) - var(--wide));
+    top: var(--wide);
+    background-color: var(--bg);
+    right: 0;
 }
