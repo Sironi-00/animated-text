@@ -1,3 +1,7 @@
+:root {
+    --long: 200px;
+    --wide: 20px;
+}
 body {
     background-color: #EEE;
 }
@@ -9,7 +13,13 @@ header {
     border-left: 2px inset blue;
     border-bottom: 2px inset blue;
 }
+.container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .container {
+    background-color: #FFF;
     box-shadow: 0 0 0 4px #222;
     min-width: 90%;
     min-height: 270px;
@@ -21,30 +31,105 @@ header {
     word-break: break-all;
 }
 .alphabet {
-    width: 200px;
-    height: 200px;
+    width: var(--long);
+    height: var(--long);
     margin: 0.5rem;
     position: relative;
+    background-color: Black;
 }
 .alphabet::before, .alphabet::after {
-    background-color: black;
+    content: "";
+    background-color: Black;
     position: absolute;
 }
 .hashTag {
-    border-left: 20px solid black;
-    border-right: 20px solid black;
+    background: white;
 }
 .hashTag::before {
-    content: "";
-    top: 20px;
-    left: -50px;
-    width: 300px;
-    height: 20px;
+    width: var(--wide);
+    height: var(--long);
+
 }
 .hashTag::after {
-    content: "";
-    bottom: 20px;
-    left: -50px;
-    width: 300px;
-    height: 20px;
+    width: var(--wide);
+    height: var(--long);
+    right: 0;
+}
+.A {
+    height: var(--wide);
+    width: calc(var(--long)/4);
+    margin-top: calc((var(--long)/2));;
+}
+.A::before {
+    width: var(--wide);
+    height: var(--long);
+    top: calc((var(--long)/2) *-1);
+    left: calc((var(--long)/6) - var(--wide));
+    rotate: 15deg;
+    transform-origin: 0 0;
+}
+.A::after {
+    width: var(--wide);
+    height: var(--long);
+    top: calc((var(--long)/2) * -1);
+    left: calc((var(--long)/6) - var(--wide));
+    rotate: -15deg;
+    transform-origin: 100% 0%;
+}
+
+.B {
+    width: 0;
+    height: 0;
+}
+.B::before {
+    width: calc(var(--long)/2);
+    height: calc(var(--long)/2);
+    border-radius: 0 50% 50% 0;
+    background-color: white;
+    box-shadow: inset 2px 2px 0 20px black;
+}
+.B::after {
+    width: calc(var(--long)/2);
+    height: calc(var(--long)/2);
+    top: calc((var(--long)/2) - var(--wide));
+    border-radius: 0 50% 50% 0;
+    background-color: white;
+    box-shadow: inset 0px 0px 0 var(--wide) black;
+}
+
+.C {
+    background-color: white;
+    box-shadow: inset 0px 0 0 var(--wide) black;
+    border-radius: 50%;
+}
+.C::after {
+    width: calc(var(--long)/4);
+    height: var(--long);
+    right: 0;
+    background-color: White;
+    border-radius: 50%;
+}
+
+.D {
+    width: calc(var(--long)/1.5);
+    border-radius: 0 45% 50% 0;
+    background-color: White;
+    box-shadow: inset 0 0 0 var(--wide) Black;
+}
+.E {
+    width: calc(var(--long) / 1.5);
+}
+.E::before {
+    width: calc((var(--long) / 1.5) - var(--wide));
+    height: calc(var(--long) - (var(--wide)*2));
+    background-color: white;
+    top: var(--wide);
+    right: 0;
+}
+.E::after {
+    width: calc((var(--long) / 1.5) - var(--wide));
+    height: var(--wide);
+    background-color: Black;
+    top: calc((var(--long)/2) - (var(--wide)/2));
+    left: 0;
 }
