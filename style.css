@@ -1,0 +1,50 @@
+body {
+    background-color: #EEE;
+}
+header {
+    text-align: center;
+}
+#input {
+    border: 0;
+    border-left: 2px inset blue;
+    border-bottom: 2px inset blue;
+}
+.container {
+    box-shadow: 0 0 0 4px #222;
+    min-width: 90%;
+    min-height: 270px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    word-break: break-all;
+}
+.alphabet {
+    width: 200px;
+    height: 200px;
+    margin: 0.5rem;
+    position: relative;
+}
+.alphabet::before, .alphabet::after {
+    background-color: black;
+    position: absolute;
+}
+.hashTag {
+    border-left: 20px solid black;
+    border-right: 20px solid black;
+}
+.hashTag::before {
+    content: "";
+    top: 20px;
+    left: -50px;
+    width: 300px;
+    height: 20px;
+}
+.hashTag::after {
+    content: "";
+    bottom: 20px;
+    left: -50px;
+    width: 300px;
+    height: 20px;
+}
