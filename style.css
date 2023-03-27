@@ -40,6 +40,14 @@ header {
     margin: 0.5rem;
     position: relative;
     background-color: var(--fg);
+    animation: blink 2s 1s infinite linear;
+}
+@keyframes blink {
+    from {}
+    50% {
+        background-color: lime;
+    }
+    to {}
 }
 .alphabet::before, .alphabet::after {
     content: "";
@@ -180,31 +188,36 @@ header {
     width: calc(var(--long) / 1.5);
 }
 .H::before {
-    width: calc((var(--long) / 1.5) - calc(var(--wide)*2));
-    height: var(--long);
-    background-color: var(--bg);
+    width: calc((var(--long)/1.5) - (var(--wide)*2));
+    height: calc(var(--long)/2 - (var(--wide)/2));
     left: var(--wide);
+    background-color: var(--bg);
 }
 .H::after {
-    width: calc((var(--long) / 1.5) - var(--wide));
-    height: var(--wide);
-    top: calc((var(--long)/2) - (var(--wide)/2));
+    width: calc((var(--long)/1.5) - (var(--wide)*2));
+    height: calc(var(--long)/2 - (var(--wide)/2));
+    bottom: 0;
+    left: var(--wide);
+    background-color: var(--bg);
 }
 
 .I {
     width: calc(var(--long)/1.5);
 }
 .I::before {
-    width: calc((var(--long) / 1.5));
-    height: calc(var(--long) - ((var(--wide)*2)));
-    background-color: var(--bg);
+    width: calc((var(--half)/1.5) - (var(--wide)/2));
+    height: calc(var(--long) - var(--wide)*2);
     top: var(--wide);
-    right: 0;
+    background-color: var(--bg);
+    border-radius: 0 5% 5% 0;
 }
 .I::after {
-    width: var(--wide);
-    height: var(--long);
-    left: calc((var(--half)/2) );
+    width: calc((var(--half)/1.5) - (var(--wide)/2));
+    height: calc(var(--long) - var(--wide)*2);
+    top: var(--wide);
+    right: 0;
+    background-color: var(--bg);
+    border-radius: 5% 0% 0% 5%;
 }
 
 .J {
@@ -215,11 +228,44 @@ header {
     height: calc(var(--long) - var(--wide)*2);
     top: var(--wide);
     background-color: var(--bg);
+    border-radius: 0 5% 5% 0;
 }
 .J::after {
     width: calc((var(--half)/1.5) - (var(--wide)/2));
     height: calc(var(--long) - var(--wide));
     top: var(--wide);
-    background-color: var(--bg);
     right: 0;
+    background-color: var(--bg);
+    border-radius: 5% 0% 0% 0%;
+}
+.K {
+    width: calc(var(--long)/1.5);
+    height: calc(var(--long)/1.5);
+    rotate: -45deg;
+    margin-top: calc((var(--long)/4));
+    /* box-shadow: inset 10px 0 0 10px var(--fg); */
+    /* Use box-shadow to make K full (cover one side) ::* for cover */
+}
+.K::before {
+    width: var(--wide);
+    height: var(--long);
+    rotate: 45deg;
+    top: calc((var(--long)/2) * -1);
+}
+.K::after {
+    background: var(--bg);
+    width: calc(var(--long)/1.5);
+    height: calc(var(--long)/1.5);
+    top: var(--wide);
+    left: var(--wide);
+}
+
+.L {
+    width: calc(var(--long)/1.5);
+}
+.L::before {
+    background: var(--bg);
+    width: calc(var(--long)/1.5 - var(--wide));
+    height: calc(var(--long) - var(--wide));
+    left: var(--wide);
 }
