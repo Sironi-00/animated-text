@@ -1,10 +1,23 @@
 :root {
-    --long: 150px;
-    --half: 75px;
-    --wide: 20px;
+    --height: 150px;
+    --width: 100px;
+    --edge: 20px;
+    
+    --height1: calc(var(--height) - var(--edge));
+    --width1: calc(var(--width) - var(--edge));
+    
+    --height2: calc(var(--height) - (var(--edge) * 2));
+    --width2: calc(var(--width) - (var(--edge) * 2));
+    
+    --height3: calc(var(--height) - (var(--edge) * 3));
+    --width3: calc(var(--width) - (var(--edge) * 3));
+    
+    --edge2: calc(var(--edge)/2);
 
     --fg: Black;
     --bg: White;
+    --tg: red;
+    --pg: lime;
 }
 body {
     background-color: white;
@@ -35,8 +48,8 @@ header {
     word-break: break-all;
 }
 .alphabet {
-    width: var(--long);
-    height: var(--long);
+    width: var(--width);
+    height: var(--height);
     margin: 0.5rem;
     position: relative;
     background-color: var(--fg);
@@ -45,7 +58,7 @@ header {
 @keyframes blink {
     from {}
     50% {
-        background-color: lime;
+        /* background-color: lime; */
     }
     to {}
 }
@@ -58,214 +71,279 @@ header {
     background: var(--bg);
 }
 .hashTag::before {
-    width: var(--wide);
-    height: var(--long);
+    width: var(--edge);
+    height: var(--height);
 
 }
 .hashTag::after {
-    width: var(--wide);
-    height: var(--long);
+    width: var(--edge);
+    height: var(--height);
     right: 0;
 }
+.white-space {
+    background-color: var(--bg);
+}
 .A {
-    height: var(--wide);
-    width: calc(var(--long)/4);
-    margin-top: calc((var(--long)/2));;
+    border-radius: 4px;
+    
 }
 .A::before {
-    width: var(--wide);
-    height: var(--long);
-    top: calc((var(--long)/2) *-1);
-    left: calc((var(--long)/6) - var(--wide));
-    rotate: 15deg;
-    transform-origin: 0 0;
+    width: var(--width2);
+    height: calc(var(--height3)/2);
+    top: var(--edge);
+    left: var(--edge);
+    background-color: var(--bg);
 }
 .A::after {
-    width: var(--wide);
-    height: var(--long);
-    top: calc((var(--long)/2) * -1);
-    left: calc((var(--long)/6) - var(--wide));
-    rotate: -15deg;
-    transform-origin: 100% 0%;
+    width: var(--width2);
+    height: calc(var(--height1)/2);
+    left: var(--edge);
+    bottom: 0;
+    background-color: var(--bg);
 }
 
 .B {
-    width: calc(var(--long)/1.5);
     background-color: var(--bg);
+    width: calc(var(--width1));
 }
 .B::before {
-    width: calc(var(--long)/1.5);
-    height: calc(var(--long)/2 + var(--wide)/2);
+    width: var(--width1);
+    height: calc(var(--height)/2 + var(--edge)/2);
     border-radius: 0 50% 50% 0;
-    background-color: var(--bg);
+    background-color: var(--fb);
     box-shadow: inset 2px 2px 0 20px var(--fg);
 }
 .B::after {
-    width: calc(var(--long)/1.5);
-    height: calc(var(--long)/2 + var(--wide)/2);
-    top: calc((var(--long)/2) - var(--wide)/2);
+    width: var(--width1);
+    height: calc(var(--height)/2 + var(--edge)/2);
+    bottom: 0;
     border-radius: 0 50% 50% 0;
     background-color: var(--bg);
-    box-shadow: inset 0px 0px 0 var(--wide) var(--fg);
+    box-shadow: inset 0px 0px 0 var(--edge) var(--fg);
 }
 
 .C {
-    background-color: var(--bg);
-    box-shadow: inset 0px 0 0 var(--wide) var(--fg);
-    border-radius: 50%;
+    width: var(--width1);
+    border-radius: 50% 0 0 50%;
 }
 .C::after {
-    width: calc(var(--long)/4);
-    height: var(--long);
-    right: 0;
+    width: var(--width1);
+    height: var(--height2);
+    top: var(--edge);
+    left: var(--edge);
     background-color: var(--bg);
+    border-radius: 50% 0 0 50%;
 }
 
 .D {
-    width: calc(var(--long)/1.5);
+    width: var(--width1);
+    border-radius: 0 45% 50% 0;
+}
+.D::after {
+    top: var(--edge);
+    left: var(--edge);
+    width: var(--width3);
+    height: var(--height2);
     border-radius: 0 45% 50% 0;
     background-color: var(--bg);
-    box-shadow: inset 0 0 0 var(--wide) var(--fg);
 }
 .E {
-    width: calc(var(--long) / 1.5);
+    width: var(--width1);
 }
 .E::before {
-    width: calc((var(--long) / 1.5) - var(--wide));
-    height: calc(var(--long) - (var(--wide)*2));
+    width: var(--width2);
+    height: calc(var(--height3)/2);
     background-color: var(--bg);
-    top: var(--wide);
+    top: var(--edge);
     right: 0;
 }
 .E::after {
-    width: calc((var(--long) / 1.5) - var(--wide));
-    height: var(--wide);
-    background-color: var(--fg);
-    top: calc((var(--long)/2) - (var(--wide)/2));
-    left: 0;
+    width: var(--width);
+    height: calc(var(--height3) / 2);
+    background-color: var(--bg);
+    bottom: var(--edge);
+    left: var(--edge);
 }
 
 .F {
-    width: calc(var(--long) / 1.5);
+    width: var(--width1);
 }
 .F::before {
-    width: calc((var(--long) / 1.5) - var(--wide));
-    height: calc(var(--long) - (var(--wide)));
+    width: var(--width2);
+    height: calc(var(--height3) / 2);
     background-color: var(--bg);
-    top: var(--wide);
-    right: 0;
+    top: var(--edge);
+    left: var(--edge);
 }
 .F::after {
-    width: calc((var(--long) / 1.5) - var(--wide));
-    height: var(--wide);
-    background-color: var(--fg);
-    top: calc((var(--long)/2) - (var(--wide)/2));
-    left: 0;
+    width: var(--width2);
+    height: calc(var(--height1) / 2);
+    background-color: var(--bg);
+    bottom: 0;
+    left: var(--edge);
 }
 
 .G {
-    background-color: var(--bg);
-    box-shadow: inset 0px 0 0 var(--wide) var(--fg);
     border-radius: 50%;
 }
 .G::before {
-    width: calc(var(--wide) * 2);
-    height: calc(var(--long) / 4);
-    top: calc(var(--long) / 4);
-    right: 0;
+    width: var(--width2);
+    height: var(--height2);
+    top: var(--edge);
+    left: var(--edge);
     background-color: var(--bg);
+    border-radius: 50%;
     
 }
 .G::after {
-    width: calc(var(--long)/3);
-    height: var(--wide);
-    top: calc(var(--long) / 2);
-    right: var(--wide);
+    width: calc(var(--width3));
+    height: var(--edge);
+    bottom: calc(var(--height1) / 2);
+    right: 0;
     background-color: var(--fg);
+    border-top: calc(var(--edge)*1.2) solid var(--bg); 
 }
 
 .H {
-    width: calc(var(--long) / 1.5);
+    width: var(--width1);
 }
 .H::before {
-    width: calc((var(--long)/1.5) - (var(--wide)*2));
-    height: calc(var(--long)/2 - (var(--wide)/2));
-    left: var(--wide);
+    width: var(--width3);
+    height: calc(var(--height1)/2);
+    left: var(--edge);
     background-color: var(--bg);
 }
 .H::after {
-    width: calc((var(--long)/1.5) - (var(--wide)*2));
-    height: calc(var(--long)/2 - (var(--wide)/2));
+    width: var(--width3);
+    height: calc(var(--height1)/2);
     bottom: 0;
-    left: var(--wide);
+    left: var(--edge);
     background-color: var(--bg);
 }
 
 .I {
-    width: calc(var(--long)/1.5);
+    width: var(--width1);
 }
 .I::before {
-    width: calc((var(--half)/1.5) - (var(--wide)/2));
-    height: calc(var(--long) - var(--wide)*2);
-    top: var(--wide);
+    width: calc(var(--width2)/2);
+    height: var(--height2);
+    top: var(--edge);
     background-color: var(--bg);
     border-radius: 0 5% 5% 0;
 }
 .I::after {
-    width: calc((var(--half)/1.5) - (var(--wide)/2));
-    height: calc(var(--long) - var(--wide)*2);
-    top: var(--wide);
+    width: calc(var(--width2)/2);
+    height: var(--height2);
+    top: var(--edge);
     right: 0;
     background-color: var(--bg);
     border-radius: 5% 0% 0% 5%;
 }
 
 .J {
-    width: calc(var(--long)/1.5);
+    width: var(--width);
 }
 .J::before {
-    width: calc((var(--half)/1.5) - (var(--wide)/2));
-    height: calc(var(--long) - var(--wide)*2);
-    top: var(--wide);
+    width: calc(var(--width1)/2);
+    height: var(--height2);
+    top: var(--edge);
     background-color: var(--bg);
     border-radius: 0 5% 5% 0;
 }
 .J::after {
-    width: calc((var(--half)/1.5) - (var(--wide)/2));
-    height: calc(var(--long) - var(--wide));
-    top: var(--wide);
+    width: calc(var(--width1)/2);
+    height: var(--height1);
+    top: var(--edge);
     right: 0;
     background-color: var(--bg);
     border-radius: 5% 0% 0% 0%;
 }
 .K {
-    width: calc(var(--long)/1.5);
-    height: calc(var(--long)/1.5);
+    width: var(--width1);
+    height: var(--height3);
     rotate: -45deg;
-    margin-top: calc((var(--long)/4));
+    margin-top: calc((var(--height3)/2));
     /* box-shadow: inset 10px 0 0 10px var(--fg); */
     /* Use box-shadow to make K full (cover one side) ::* for cover */
 }
 .K::before {
-    width: var(--wide);
-    height: var(--long);
+    width: var(--edge);
+    height: var(--height);
     rotate: 45deg;
-    top: calc((var(--long)/2) * -1);
+    top: calc((var(--height)/2) * -1);
 }
 .K::after {
     background: var(--bg);
-    width: calc(var(--long)/1.5);
-    height: calc(var(--long)/1.5);
-    top: var(--wide);
-    left: var(--wide);
+    width: calc(var(--height)/1.5);
+    height: calc(var(--height)/1.5);
+    top: var(--edge);
+    left: var(--edge);
 }
 
 .L {
-    width: calc(var(--long)/1.5);
+    width: var(--width1);
 }
 .L::before {
     background: var(--bg);
-    width: calc(var(--long)/1.5 - var(--wide));
-    height: calc(var(--long) - var(--wide));
-    left: var(--wide);
+    width: var(--width1);
+    height: var(--height1);
+    left: var(--edge);
+}
+
+.O {
+    border-radius: 50%;
+    width: var(--width);
+}
+.O::before {
+    top: var(--edge);
+    left: var(--edge);
+
+    width: var(--width2);
+    height: var(--height2);
+    border-radius: 50%;
+    background-color: var(--bg);
+}
+.P {
+    border-radius: 0 50% 0% 0;
+}
+.P::before {
+    width: var(--width2);
+    height: calc(var(--height2)/2);
+    top: var(--edge);
+    left: var(--edge);
+    border-radius: 0 45% 45% 0;
+    background-color: var(--bg)
+}
+.P::after {
+    width: var(--width1);
+    height: calc(var(--height2)/2);
+    bottom: 0;
+    left: var(--edge);
+    background-color: var(--bg)
+}
+
+.V::before {
+    background-color: var(--bg);
+    width: var(--width2);
+    height: 0;
+    bottom: calc(var(--edge) * -1);
+    /* bottom: 0; */
+    left: 0;
+    border: var(--edge) solid var(--bg);
+    border-top: var(--height1) solid  var(--fg);
+}
+.V::after {
+    background-color: var(--bg);
+    width: var(--edge);
+    height: 0;
+    left: var(--edge);
+    border: var(--edge) solid var(--fg);
+    border-bottom-width: 0;
+    border-top: var(--height1) solid  var(--bg);
+}
+.U::before {
+    background-color: var(--bg);
+    width: var(--width2);
+    height: var(--height1);
+    left: var(--edge);
 }

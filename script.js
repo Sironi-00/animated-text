@@ -13,7 +13,7 @@ let Alphabets = {
      'M':`<div class="alphabet M"></div>`, 'N':`<div class="alphabet N"></div>`, 'O':`<div class="alphabet O"></div>`, 'P':`<div class="alphabet P"></div>`, 
      'Q':`<div class="alphabet Q"></div>`, 'R':`<div class="alphabet R"></div>`, 'S':`<div class="alphabet S"></div>`, 'T':`<div class="alphabet S"></div>`,  
      'U':`<div class="alphabet U"></div>`, 'V':`<div class="alphabet V"></div>`, 'W':`<div class="alphabet W"></div>`, 'X':`<div class="alphabet X"></div>`,  
-     'Y':`<div class="alphabet Y"></div>`, 'Z':`<div class="alphabet Z"></div>`, '#':`<div class="alphabet hashTag"></div>`
+     'Y':`<div class="alphabet Y"></div>`, 'Z':`<div class="alphabet Z"></div>`, ' ':`<div class="alphabet white-space"></div>`, '#':`<div class="alphabet hashTag"></div>`
 }
 
 let makeString = (letter) => {
