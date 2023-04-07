@@ -30,7 +30,7 @@ header {
     border-left: 2px inset blue;
     border-bottom: 2px inset blue;
 }
-.container * {
+.container *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,8 +44,10 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    
     word-break: break-all;
+    overflow-x: hidden;
 }
 .alphabet {
     width: var(--width);
@@ -67,22 +69,21 @@ header {
     background-color: var(--fg);
     position: absolute;
 }
-.hashTag {
+.dot {
     background: var(--bg);
+    width: var(--width2);
 }
-.hashTag::before {
+.dot::before {
+    background-color: var(--fg);
     width: var(--edge);
-    height: var(--height);
-
-}
-.hashTag::after {
-    width: var(--edge);
-    height: var(--height);
-    right: 0;
+    height: var(--edge);
+    bottom: 0;
 }
 .white-space {
     background-color: var(--bg);
-}
+    width: var(--width2);
+} 
+
 .A {
     border-radius: 4px;
     
@@ -124,7 +125,7 @@ header {
 
 .C {
     width: var(--width1);
-    border-radius: 50% 0 0 50%;
+    border-radius: 50% 5% 5% 50%;
 }
 .C::after {
     width: var(--width1);
@@ -132,7 +133,7 @@ header {
     top: var(--edge);
     left: var(--edge);
     background-color: var(--bg);
-    border-radius: 50% 0 0 50%;
+    border-radius: 50% 5% 5% 50%;
 }
 
 .D {
@@ -196,8 +197,8 @@ header {
     
 }
 .G::after {
-    width: calc(var(--width3));
-    height: var(--edge);
+    width: var(--width3);
+    height: calc(var(--edge)*2);
     bottom: calc(var(--height1) / 2);
     right: 0;
     background-color: var(--fg);
@@ -290,6 +291,28 @@ header {
     left: var(--edge);
 }
 
+
+.N::before {
+    width: 0;
+    height: 0;
+    left: var(--edge);
+    border: var(--width2) solid var(--fg);
+    border-bottom-left-radius: 100%;
+    border-right: 0 solid var(--bg);
+    border-bottom: 0 solid var(--bg);
+    border-top: var(--width) solid var(--bg);
+}
+.N::after {
+    width: 0;
+    height: 0;
+    left: var(--edge);
+    bottom: 0;
+    border-right: var(--width2) solid;
+    border-top-right-radius: 100%;
+    border-left: 0 solid var(--bg);
+    border-top: 0 solid var(--bg);
+    border-bottom: var(--width) solid var(--bg);
+}
 .O {
     border-radius: 50%;
     width: var(--width);
@@ -322,28 +345,109 @@ header {
     background-color: var(--bg)
 }
 
-.V::before {
-    background-color: var(--bg);
+.Q {
+    border-radius: 50%;
+    width: var(--width);
+}
+.Q::before {
+    top: var(--edge);
+    left: var(--edge);
+
     width: var(--width2);
-    height: 0;
-    bottom: calc(var(--edge) * -1);
-    /* bottom: 0; */
-    left: 0;
-    border: var(--edge) solid var(--bg);
-    border-top: var(--height1) solid  var(--fg);
+    height: var(--height2);
+    border-radius: 50%;
+    background-color: var(--bg);
+}
+.Q::after {
+    width: var(--width3);
+    height: var(--edge);
+    background-color: var(--fg);
+    right: 0;
+    bottom: var(--edge);
+    rotate: 35deg;
+}
+
+.R {
+    background-color: var(--bg);
+    width: var(--width1);
+}
+.R::before {
+    width: var(--width1);
+    height: calc(var(--height)/2 +var(--edge2));
+    background-color: var(--bg);
+    border-radius: 0 50% 50% 0;
+    border: var(--edge) solid var(--fg); 
+}
+.R::after {
+    width: var(--width1);
+    height: calc(var(--height)/2 +var(--edge2));
+    background-color: var(--bg);
+    border-radius: 0 50% 0% 0;
+    bottom: 0;
+    border: var(--edge) solid var(--fg); 
+    border-bottom: 0;
+}
+
+.S {
+    border-radius: 25%;
+    width: var(--width1);
+}
+.S::before {
+    width: var(--width2);
+    height: calc(var(--height2)/2 - var(--edge2));
+    top: var(--edge);
+    left: var(--edge);
+    background-color: var(--bg);
+    border-radius: 25% 25% 0 25%;
+}
+.S::after {
+    width: var(--width2);
+    height: calc(var(--height2)/2 - var(--edge2));
+    bottom: var(--edge);
+    right: var(--edge);
+    background-color: var(--bg);
+    border-radius: 0% 25% 25% 25%;
+}
+
+
+.T::before {
+    width: calc(var(--width1)/2);
+    height: var(--height1);
+    top: var(--edge);
+    background-color: var(--bg);
+}
+.T::after {
+    width: calc(var(--width1)/2);
+    height: var(--height1);
+    bottom: 0;
+    right: 0;
+    background-color: var(--bg);
+}
+
+
+.V::before {
+    background-color: #F00;
+    width: var(--width);
+    height: var(--height);
+    bottom: 0;
+    border-top: var(--height) solid var(--fg);
+    border-right: var(--width3) solid var(--bg);
+    border-bottom: 0;
+    border-left: var(--width3) solid var(--bg);
 }
 .V::after {
     background-color: var(--bg);
     width: var(--edge);
     height: 0;
-    left: var(--edge);
-    border: var(--edge) solid var(--fg);
+    left: var(--edge2);
+    border: var(--width3) solid var(--fg);
     border-bottom-width: 0;
     border-top: var(--height1) solid  var(--bg);
+    border-radius: 0 0 50% 50%;
 }
 .U::before {
     background-color: var(--bg);
     width: var(--width2);
     height: var(--height1);
-    left: var(--edge);
+    left: var(--edge                                                               );
 }
